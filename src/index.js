@@ -44,20 +44,16 @@ class Wobble extends React.Component {
     if (letter === ' ') {
       o[styles.space] = true;
     }
-    console.log(o);
     return classnames(o);
   }
 
   getStyles = (index) => {
-    console.log(styles);
     const { max, duration, delay, letterStyle } = this.props;
     const styleSheet = Object.assign({}, letterStyle);
     const d = index > max && max > 0
       ? delay + (duration * max)
       : delay + (duration * index);
-    console.log(d, index);
     styleSheet['animationDelay'] = `${d}s`; // eslint-disable-line
-    console.log(styleSheet);
     return styleSheet;
   }
 
@@ -72,9 +68,7 @@ class Wobble extends React.Component {
   render() {
     const { text, className, style, hover } = this.props;
     const cl = `${hover ? styles.clhover : styles.cl} ${className}`;
-    console.log(text, text.split(''));
     text.split('').map((letter) => { // eslint-disable-line
-      console.log(letter);
       return true;
     });
     return (
