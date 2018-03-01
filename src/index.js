@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import styles from './style.css';
 
-class Whobble extends React.Component {
+class Wobble extends React.Component {
   static propTypes = {
     text: PropTypes.string.isRequired,
     hover: PropTypes.bool,
@@ -29,7 +29,7 @@ class Whobble extends React.Component {
     letterClassName: '',
   }
 
-  getClasses = () => {
+  getClasses = (letter) => {
     const { letterClassName } = this.props;
     const o = {};
     if (letterClassName.length) {
@@ -41,6 +41,9 @@ class Whobble extends React.Component {
     }
     o[styles.letter] = true;
     o[styles.sl] = true;
+    if (letter === ' ') {
+      o[styles.space] = true;
+    }
     console.log(o);
     return classnames(o);
   }
@@ -80,7 +83,7 @@ class Whobble extends React.Component {
           text.split('').map((letter, index) => (
             <span
               key={this.getKey(letter, index)}
-              className={this.getClasses()}
+              className={this.getClasses(letter)}
               style={this.getStyles(index)}
             >
               {letter}
@@ -92,4 +95,4 @@ class Whobble extends React.Component {
   }
 }
 
-export default Whobble;
+export default Wobble;

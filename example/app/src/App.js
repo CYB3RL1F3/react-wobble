@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div>
         <p>
-          <Wobble text={'YOLO'} />
+          <Wobble text={'YOLO ASWÉ'} />
         </p>
       </div>
     );

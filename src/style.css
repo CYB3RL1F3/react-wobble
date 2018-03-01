@@ -26,7 +26,7 @@
   display: inline-block;
 }
 
-.clhover:hover .letter {
+.clhover:hover .letter:not(.space) {
   -webkit-animation-name: bounceUp;
   animation-name: bounceUp;
   animation-duration: 0.5s;
