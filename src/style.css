@@ -1,0 +1,35 @@
+
+@keyframes bounceUp {
+  from {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+
+  50% {
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+
+  to {
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+}
+
+.cl, .clhover {
+  display: inline-block;
+}
+
+.clhover:hover .letter {
+  -webkit-animation-name: bounceUp;
+  animation-name: bounceUp;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+  display: inline-block;
+}

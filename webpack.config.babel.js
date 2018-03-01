@@ -1,0 +1,34 @@
+import path from 'path';
+import webpack from 'webpack';
+
+export default {
+  devtool: 'source-map',
+  entry: path.resolve(__dirname, 'src/index.js'),
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.js',
+    library: 'react-library-starter',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        include: path.join(__dirname, 'src'),
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]',
+      },
+    ],
+  },
+};
